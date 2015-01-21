@@ -1,19 +1,46 @@
-<?php if ($pages && !empty($pages)) :?>
-	<table>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Title</th>
-				<th>State</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($pages as $page) : ?>
-			<tr>
-				<td><?php echo $page['id']; ?></td>
-				<td><?php echo $page['title']; ?></td>
-				<td><?php echo (!empty($page['publish']) ? 'published' : 'draft'); ?></td>
-			<?php endforeach; ?>
-		</tbody>
-	</table>
-<?php endif; ?>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-pills">
+            <li><a href="/cms/pages/new">New Page</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Pages</h1>
+        <hr />
+        <?php if ($pages && !empty($pages)) : ?>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>State</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($pages as $page) : ?>
+                <tr>
+                    <td><?php echo $page['id']; ?></td>
+                    <td><?php echo $page['title']; ?></td>
+                    <td><?php echo $page['slug']; ?></td>
+                    <td><?php echo(!empty($page['publish']) ? 'published' : 'draft'); ?></td>
+                    <td>
+                        <a target="_blank" href="/<?php echo $page['slug']; ?>">Preview</a>
+                        <a href="/cms/pages/<?php echo $page['id']; ?>/edit">Edit</a>
+                        <form id="delete_page_<?php echo $page['id']; ?>" action="/cms/pages/<?php echo $page['id']; ?>"
+                              method="post">
+                            <input type="hidden" name="_method" value="delete"/>
+                            <a href="#"
+                               onclick="javascript:document.getElementById('delete_page_<?php echo $page['id']; ?>').submit();">Delete</a>
+                        </form>
+                    </td>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
+    </div>
+</div>

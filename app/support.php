@@ -2,5 +2,5 @@
 
 function slugify($str)
 {
-	return strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $str));
+    return (new \Cocur\Slugify\Slugify())->slugify($str);
 }

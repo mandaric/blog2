@@ -1,20 +1,43 @@
-<form action="<?php echo $action; ?>" method="post">
-	<fieldset>
-		<div>
-			<label for="title">Title</label>
-			<input type="text" id="title" name="title" value="<?php if (isset($page['title'])) echo $page['title']; ?>" />
-		</div>
-		<div>
-			<label for="content">Content</label>
-			<textarea id="content" name="content" cols="60" rows="6"><?php if (isset($page['content'])) echo $page['content']; ?></textarea>
-		</div>
-		<div>
-			<label for="publish">
-				<input type="checkbox" id="publish" name="publish" <?php if (isset($page['publish']) && !empty($page['publish'])) echo 'checked'; ?> />Publish
-			</label>
-		</div>
-		<div>
-			<button type="submit">Save</button>
-		</div>
-	</fieldset>
-</form>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-pills">
+            <li><a href="/cms/pages">All Pages</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <?php if (isset($page)) : ?>
+        <h1>Edit Page</h1>
+        <?php else : ?>
+        <h1>Add new Page</h1>
+        <?php endif; ?>
+
+        <hr />
+        <form action="<?php echo $action; ?>" method="post">
+            <fieldset>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="title"
+                           value="<?php if (isset($page['title'])) echo $page['title']; ?>"/>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea class="form-control" id="content" name="content" cols="60"
+                              rows="6"><?php if (isset($page['content'])) echo $page['content']; ?></textarea>
+                </div>
+                <div class="checkbox">
+                    <label for="publish">
+                        <input type="checkbox" id="publish"
+                               name="publish" <?php if (isset($page['publish']) && !empty($page['publish'])) echo 'checked'; ?> />Publish
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Save</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
