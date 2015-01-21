@@ -1,0 +1,16 @@
+{
+    "name": "zenry/blog",
+    "description": "blog",
+    "require": {
+        "dispatch/dispatch": "~7.0.0",
+        "catfan/medoo": "~0.9.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zenry",
+            "email": "henry@postb.us"
+        }
+    ],
+    "minimum-stability": "stable"
+}

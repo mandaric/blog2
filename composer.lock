@@ -1,0 +1,185 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "a3903a6b1912f71e7eacfaa031cb68cf",
+    "packages": [
+        {
+            "name": "catfan/medoo",
+            "version": "v0.9.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/catfan/Medoo.git",
+                "reference": "019e4f60aa756adae12643c3c6a851dd9c468c08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/catfan/Medoo/zipball/019e4f60aa756adae12643c3c6a851dd9c468c08",
+                "reference": "019e4f60aa756adae12643c3c6a851dd9c468c08",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": ">=5.1"
+            },
+            "suggest": {
+                "ext-pdo-mysql": "For MySQL or MariaDB databases",
+                "ext-pdo-pqsql": "For PostgreSQL databases",
+                "ext-pdo-sqlite": "For SQLite databases",
+                "ext-pdo_dblib": "For MSSQL or Sybase databases on Liunx/UNIX platform",
+                "ext-pdo_oci": "For Oracle databases",
+                "ext-pdo_sqlsrv": "For MSSQL databases on Windows platform"
+            },
+            "type": "framework",
+            "autoload": {
+                "files": [
+                    "medoo.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Angel Lai",
+                    "email": "angel.lai.cat@gmail.com"
+                }
+            ],
+            "description": "The Lightest PHP database framework to accelerate development",
+            "homepage": "http://medoo.in",
+            "keywords": [
+                "database",
+                "lightweight",
+                "mssql",
+                "mysql",
+                "php framework",
+                "sql",
+                "sqlite"
+            ],
+            "time": "2014-12-04 07:52:42"
+        },
+        {
+            "name": "dispatch/dispatch",
+            "version": "7.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/noodlehaus/dispatch.git",
+                "reference": "38124ddc2b45a1f04f2f6af1e81ce178107ff0b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/noodlehaus/dispatch/zipball/38124ddc2b45a1f04f2f6af1e81ce178107ff0b7",
+                "reference": "38124ddc2b45a1f04f2f6af1e81ce178107ff0b7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.4.0"
+            },
+            "require-dev": {
+                "ext-xdebug": ">= 2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "dispatch.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jesus A. Domingo",
+                    "homepage": "http://noodlehaus.github.io/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Kafene",
+                    "homepage": "https://github.com/kafene",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Martin Angelov",
+                    "homepage": "https://github.com/martinaglv",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "4d47",
+                    "homepage": "https://github.com/4d47",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Bastian Widmer",
+                    "homepage": "https://github.com/dasrecht",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Lloyd Zhou",
+                    "homepage": "https://github.com/lloydzhou",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Darkalemanbr",
+                    "homepage": "https://github.com/darkalemanbr",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Amin By",
+                    "homepage": "https://github.com/xielingwang",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Ross Masters",
+                    "homepage": "https://github.com/rmasters",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Tom Streller",
+                    "homepage": "https://github.com/scan",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Lars",
+                    "homepage": "https://github.com/larsbo",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Ciprian Danea",
+                    "homepage": "https://github.com/cdanea",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Roman Ožana",
+                    "homepage": "https://github.com/OzzyCzech",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "a microframework/front-controller",
+            "homepage": "http://github.com/noodlehaus/dispatch/",
+            "keywords": [
+                "framework",
+                "micro",
+                "microframework",
+                "microphp",
+                "router"
+            ],
+            "time": "2015-01-18 02:22:47"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "platform": [],
+    "platform-dev": []
+}
