@@ -1,9 +1,14 @@
 <?php
 
+/**
+ * Database
+ *
+ * @return medoo
+ */
 function db()
 {
-    $new = false;
-    $file = APP_DIR . '/' . config('database_file');
+    $new  = false;
+    $file = APP_DIR.'/'.config('database_file');
 
     if (!file_exists($file))
     {

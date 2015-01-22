@@ -14,7 +14,7 @@
 map('GET', '/cms/pages/new', function ()
 {
     // display form, set url to post the data to /cms/pages
-    print phtml('page/form', ['action' => '/cms/pages']);
+    print phtml('page/form', ['action' => '/cms/pages'], 'cms');
 });
 
 /**
@@ -26,13 +26,13 @@ map('GET', '/cms/pages/<id>', function ($params)
     // see: http://medoo.in/api/get
     if ($page = db()->get('pages', '*', ['id' => $params['id']]))
     {
-      // show the page
-      print phtml('page/page', ['page' => $page]);
+        // show the page
+        print phtml('page/page', ['page' => $page], 'cms');
     }
     else
     {
-      // page was not found, print an error
-      print phtml('error', ['msg' => 'Page not found, ID:' . $params['id']]);
+        // page was not found, print an error
+        print phtml('error', ['msg' => 'Page not found, ID:'.$params['id']], 'cms');
     }
 });
 
@@ -46,7 +46,7 @@ map('GET', '/cms/pages', function ()
     $pages = db()->select('pages', '*');
 
     // show the pages overview
-    print phtml('page/index', ['pages' => $pages]);
+    print phtml('page/index', ['pages' => $pages], 'cms');
 });
 
 /**
@@ -77,7 +77,7 @@ map('POST', '/cms/pages', function ()
     }
 
     // insert failed, display error
-    print phtml('error', ['msg' => 'Page not saved, ID:' . $params['id']]);
+    print phtml('error', ['msg' => 'Page not saved'], 'cms');
 });
 
 /**
@@ -89,16 +89,16 @@ map('GET', '/cms/pages/<id>/edit', function ($params)
     // see: http://medoo.in/api/get
     if ($page = db()->get('pages', '*', ['id' => $params['id']]))
     {
-      // display the form and set the url to post data to specific page url
-      print phtml('page/form', [
-        'page' => $page,
-        'action' => sprintf('/cms/pages/%d', $params['id'])
-      ]);
+        // display the form and set the url to post data to specific page url
+        print phtml('page/form', [
+            'page'   => $page,
+            'action' => sprintf('/cms/pages/%d', $params['id'])
+        ], 'cms');
     }
     else
     {
-      // page was not found, print an error
-      print phtml('error', ['msg' => 'Page not found, ID:' . $params['id']]);
+        // page was not found, print an error
+        print phtml('error', ['msg' => 'Page not found, ID:'.$params['id']], 'cms');
     }
 });
 
@@ -128,7 +128,7 @@ map('POST', '/cms/pages/<id>', function ($params)
     }
 
     // update failed, display error
-    print phtml('error', ['msg' => 'Page not saved, ID:' . $params['id']]);
+    print phtml('error', ['msg' => 'Page not saved, ID:'.$params['id']], 'cms');
 });
 
 /**
@@ -147,7 +147,7 @@ map('DELETE', '/cms/pages/<id>', function ($params)
     }
 
     // delete failed, display error
-    print phtml('error', ['msg' => 'Page not deleted, ID:' . $params['id']]);
+    print phtml('error', ['msg' => 'Page not deleted, ID:'.$params['id']], 'cms');
 });
 
 /**
@@ -157,15 +157,17 @@ map('GET', '/<slug>', function ($params)
 {
     // setup the query, show only if published page
     $query = [
-      'slug' => $params['slug'],
-      'publish' => 1
+        'AND' => [
+            'slug'    => $params['slug'],
+            'publish' => 1
+        ]
     ];
 
     // check if GET parameter is set to show unpublished page
     if (isset($_GET['preview']) && ($_GET['preview'] == 1))
     {
-      // uri contains ?preview=1, remove publish from query
-      unset($query['publish']);
+        // uri contains ?preview=1, remove publish from query
+        unset($query['AND']['publish']);
     }
 
     // get the a single page from the database by slug
@@ -178,8 +180,6 @@ map('GET', '/<slug>', function ($params)
     else
     {
         // page was not found, display error
-        print phtml('error', [
-          'msg' => 'Page not found, SLUG:' . $params['slug']
-        ]);
+        print phtml('error', ['msg' => 'Page not found, SLUG:'.$params['slug']], 'cms');
     }
 });

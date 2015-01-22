@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1>Pages</h1>
-        <hr />
+        <hr/>
         <?php if ($pages && !empty($pages)) : ?>
             <table class="table table-bordered">
                 <thead>
@@ -31,11 +31,12 @@
                     <td>
                         <a target="_blank" href="/<?php echo $page['slug']; ?>?preview=1">Preview</a>
                         <a href="/cms/pages/<?php echo $page['id']; ?>/edit">Edit</a>
+
                         <form id="delete_page_<?php echo $page['id']; ?>" action="/cms/pages/<?php echo $page['id']; ?>"
-                              method="post">
+                            method="post">
                             <input type="hidden" name="_method" value="delete"/>
                             <a href="#"
-                               onclick="javascript:document.getElementById('delete_page_<?php echo $page['id']; ?>').submit();">Delete</a>
+                                onclick="javascript:document.getElementById('delete_page_<?php echo $page['id']; ?>').submit();">Delete</a>
                         </form>
                     </td>
                     <?php endforeach; ?>
