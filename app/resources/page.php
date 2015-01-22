@@ -32,7 +32,7 @@ map('GET', '/cms/pages/<id>', function ($params)
     else
     {
         // page was not found, print an error
-        print phtml('error', ['msg' => 'Page not found, ID:'.$params['id']], 'cms');
+        error(404, 'Page not found, ID:'.$params['id']);
     }
 });
 
@@ -77,7 +77,7 @@ map('POST', '/cms/pages', function ()
     }
 
     // insert failed, display error
-    print phtml('error', ['msg' => 'Page not saved'], 'cms');
+    error(500, 'Page not saved');
 });
 
 /**
@@ -98,7 +98,7 @@ map('GET', '/cms/pages/<id>/edit', function ($params)
     else
     {
         // page was not found, print an error
-        print phtml('error', ['msg' => 'Page not found, ID:'.$params['id']], 'cms');
+        error(404, 'Page not found, ID: '.$params['id']);
     }
 });
 
@@ -128,7 +128,7 @@ map('POST', '/cms/pages/<id>', function ($params)
     }
 
     // update failed, display error
-    print phtml('error', ['msg' => 'Page not saved, ID:'.$params['id']], 'cms');
+    error(500, 'Page not saved, ID: '.$params['id']);
 });
 
 /**
@@ -147,7 +147,7 @@ map('DELETE', '/cms/pages/<id>', function ($params)
     }
 
     // delete failed, display error
-    print phtml('error', ['msg' => 'Page not deleted, ID:'.$params['id']], 'cms');
+    error(500, 'Page not deleted, ID: '.$params['id']);
 });
 
 /**
@@ -180,6 +180,6 @@ map('GET', '/<slug>', function ($params)
     else
     {
         // page was not found, display error
-        print phtml('error', ['msg' => 'Page not found, SLUG:'.$params['slug']], 'cms');
+        error(404, 'Page not found, SLUG: '.$params['slug']);
     }
 });

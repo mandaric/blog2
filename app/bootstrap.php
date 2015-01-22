@@ -16,6 +16,9 @@ config(parse_ini_file(__DIR__.'/config.ini'));
 // Load support functions
 require APP_DIR.'/support.php';
 
+// Load error mappings
+require APP_DIR.'/error.php';
+
 // Setup Database
 require APP_DIR.'/database.php';
 
