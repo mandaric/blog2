@@ -29,7 +29,7 @@
                     <td><?php echo $page['slug']; ?></td>
                     <td><?php echo(!empty($page['publish']) ? 'published' : 'draft'); ?></td>
                     <td>
-                        <a target="_blank" href="/<?php echo $page['slug']; ?>">Preview</a>
+                        <a target="_blank" href="/<?php echo $page['slug']; ?>?preview=1">Preview</a>
                         <a href="/cms/pages/<?php echo $page['id']; ?>/edit">Edit</a>
                         <form id="delete_page_<?php echo $page['id']; ?>" action="/cms/pages/<?php echo $page['id']; ?>"
                               method="post">

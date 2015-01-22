@@ -155,9 +155,22 @@ map('DELETE', '/cms/pages/<id>', function ($params)
  */
 map('GET', '/<slug>', function ($params)
 {
+    // setup the query, show only if published page
+    $query = [
+      'slug' => $params['slug'],
+      'publish' => 1
+    ];
+
+    // check if GET parameter is set to show unpublished page
+    if (isset($_GET['preview']) && ($_GET['preview'] == 1))
+    {
+      // uri contains ?preview=1, remove publish from query
+      unset($query['publish']);
+    }
+
     // get the a single page from the database by slug
     // see: http://medoo.in/api/get
-    if ($page = db()->get('pages', '*', ['slug' => $params['slug']]))
+    if ($page = db()->get('pages', '*', $query))
     {
         // show the page
         print phtml('page/page', ['page' => $page]);
